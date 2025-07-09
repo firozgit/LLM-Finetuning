@@ -1,0 +1,45 @@
+# Provide Azure ML Config details
+subscription_id: "<your-subscription-id>" # Please modify to your Azure subscription ID
+resource_group: "<your-resource-group>" # Please modify to your Azure resource group
+workspace_name: "<your-workspace-name>" # Please modify to your Azure workspace name
+
+# Provide training environment details
+training_env_name: "ft-env-phi-4-mini-instruct-lora"
+training_env_version: "1"
+training_env_description: "Environment for fine-tuning Phi-4-mini-instruct with LoRA"
+training_env_requirements: "requirements.txt" # If you want to use requirements.txt instead of conda file
+training_env_base_image: "mcr.microsoft.com/azureml/curated/acpt-pytorch-2.2-cuda12.1:36"
+training_env_conda_file: "training_environment.yml" 
+training_compute_cluster_name: "compute-low-24ads-1a100" # Name of the AzureML compute cluster for training. I created a cluster Standard_24ads_A100_v4 with 1 node (1 x A100 GPU with 80GB memory)
+training_compute_cluster_size: "Standard_24ads_A100_v4" #
+
+# Directory configuration
+data_dir: "./data"
+train_dir: "./train"
+output_dir: "./output" # Directory to store the output of the training job. This is not used anywhere directly but showing for clarity
+model_dir: "./output/model" # Directory to store the final model. This is not used anywhere directly but showing for clarity
+
+# Provide finetuned model details
+finetuned_model_name: "ft-phi-4-mini-instruct-lora"
+finetuned_model_version: "1"
+
+# Provide inference environment details
+inference_env_name: "finetuned-phi4-model-env"
+inference_env_version: "4"
+inference_env_description: "Environment for inference of finetuned Phi-4-mini-instruct model"
+inference_env_conda_file: "inference_environment.yml"
+inference_env_base_image: "mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04"
+
+# Provide baseline endpoint details
+baseline_endpoint_name: "<your-baseline-endpoint-name>" # Name of the AzureML endpoint for baseline model
+
+# Provide finetuned endpoint details
+endpoint_name: "ft-phi4-mini-instruct-endpoint"
+deployment_name: "blue"
+deployment_instance_type: "Standard_NC24ads_A100_v4" # Name of the AzureML SKU for deployment. I am using "Standard_NC24ads_A100_v4" for real-time deployment. More details here - https://learn.microsoft.com/en-us/azure/machine-learning/reference-managed-online-endpoints-vm-sku-list?view=azureml-api-2
+deployment_instance_count: 1
+
+# Provide finetuned batch endpoint details
+batch_endpoint_name: "b-ft-phi4-mini-instruct-endpoint"
+batch_deployment_name: "green"
+batch_cluster_name: "compute-low-nc4as-1t4" # Name of the AzureML compute cluster for batch inference I created.  I am using "Standard_NC4as_T4_v3" for batch inference.

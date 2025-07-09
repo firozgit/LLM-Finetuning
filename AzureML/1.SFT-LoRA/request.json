@@ -1,0 +1,15 @@
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are a medical expert. Read the following USMLE question and choose the best answer. Give me the answer as A/B/C/D/E."
+        },
+        {
+            "role": "user",
+            "content": "Question:\nA 79-year-old man presents to the office due to shortness of breath with moderate exertion and a slightly productive cough. He has a medical history of 25 years of heavy smoking. His vitals include: heart rate 89/min, respiratory rate 27/min, and blood pressure 120/90 mm Hg. The physical exam shows increased resonance to percussion, decreased breath sounds, and crackles at the lung base. Chest radiography shows signs of pulmonary hyperinflation. Spirometry shows a forced expiratory volume in the first second (FEV1) of 48%, a forced vital capacity (FVC) of 85%, and an FEV1/FVC ratio of 56%. According to these results, what is the most likely diagnosis?\n\nOptions:\nA. Asthma\nB. Lymphangioleiomyomatosis\nC. Chronic obstructive pulmonary disease (COPD)\nD. Bronchiectasis\nE. Heart failure"
+        }
+    ],
+    "temperature": 0.0,
+    "max_new_tokens": 10,
+    "do_sample": false
+}

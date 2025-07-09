@@ -1,0 +1,11 @@
+name: myenv
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+    - azureml-core
+    - azureml-defaults
+    - azureml-inference-server-http
+    - transformers
+    - torch
+    - peft

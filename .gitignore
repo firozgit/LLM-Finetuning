@@ -1,0 +1,50 @@
+# Jupyter Notebook checkpoints and outputs
+**/.ipynb_checkpoints/
+
+# Model artifacts and large files
+AzureML/1.SFT-LoRA/model/
+**/output/
+**/models/
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+
+# Configuration files with real credentials
+**/config_actual.yml
+**/config_prod.yml
+**/config_real.yml
+
+# Batch inference results with potentially sensitive data
+**/batch_results/
+**/predictions/
+**/inference_results/
+
+# Large data files
+*.jsonl.gz
+*.csv.gz
+*.parquet
+
+# Python cache and environment
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Azure ML logs and artifacts
+azureml-logs/
+logs/
+outputs/
+
+# IDE and OS files
+.vscode/settings.json
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
